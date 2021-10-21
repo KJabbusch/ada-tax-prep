@@ -42,8 +42,6 @@ DEDUCTION_CATEGORIES = (
 )
 
 STANDARD_DEDUCTION_2020 = 12400
->>>>>>> 389cc9e50d65ee247500630df32500d11d2aa6e0
->>>>>>> 3de67ec4f5b023b1182eebc37ac18bc086499614
 
 def calculate_deducted_income(income, deductions, standard_deduction):
     summed_deductions = sum((
@@ -70,3 +68,31 @@ def calculate_tax_liability(income, deductions, standard_deduction, brackets):
 
 def calculate_tax_liability_2020(income, deductions):
     return calculate_tax_liability(income, deductions, STANDARD_DEDUCTION_2020, TAX_BRACKETS_2020)
+
+class TaxPayer:
+    def __init__(self, withholdings, income, deductions):
+        self.withholdings = withholdings
+        self.income = income
+        self.deductions = deductions
+
+    def calculate_return(self, standard_deduction, brackets):
+        deducted_income = calculate_deducted_income(
+            self.income,
+            self.deductions,
+            standard_deduction
+        )
+
+        tax_liability = calculate_tax_by_bracket(deducted_income, brackets)
+
+        return self.withholdings - tax_liability
+
+    def calculate_return_2020(self):
+        deducted_income = calculate_deducted_income(
+            self.income,
+            self.deductions,
+            STANDARD_DEDUCTION_2020
+        )
+
+        tax_liability = calculate_tax_by_bracket(deducted_income, TAX_BRACKETS_2020)
+
+        return self.withholdings - tax_liability

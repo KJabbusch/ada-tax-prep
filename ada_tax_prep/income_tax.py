@@ -33,10 +33,6 @@ def calculate_tax_by_bracket(income, brackets):
 def calculate_tax_2020(income):
     return calculate_tax_by_bracket(income, TAX_BRACKETS_2020)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 389cc9e50d65ee247500630df32500d11d2aa6e0
 DEDUCTION_CATEGORIES = (
     "charity",
     "mortgage",
@@ -45,15 +41,7 @@ DEDUCTION_CATEGORIES = (
     "healthcare"
 )
 
-<<<<<<< HEAD
 STANDARD_DEDUCTION_2020 = 12400
-=======
-<<<<<<< HEAD
-STANDARD_DEDUCTION_2020 = 12400
-=======
-STANDARD_DEDUCTION_2020 = 12400
->>>>>>> 389cc9e50d65ee247500630df32500d11d2aa6e0
->>>>>>> 3de67ec4f5b023b1182eebc37ac18bc086499614
 
 def calculate_deducted_income(income, deductions, standard_deduction):
     summed_deductions = sum((
